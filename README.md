@@ -12,7 +12,7 @@ One simple and clean launcher for the Steam releases of KINGDOM HEARTS 1.5+2.5, 
 - Launching the 358/2 Days native PC port instead of the collection's movie
 - Launching Melon Mix instead of game's movie implementations of 358/2 Days and Re:coded
 - Launching GBA Chain of Memories instead of Re:Chain of Memories
-- Best game orders available, such as alphabetical and reverse chronological (i want to see a marathon with alphabetical 2 reverse)
+- Best game orders available, such as alphabetical and reverse chronological
 - UI-less launching via launch options (see below)
 
 ## Install
@@ -131,7 +131,7 @@ Open `Kingdom-Hearts-Launcher.sln` in Visual Studio, or use `Package-Release.ps1
 - 358/2 Days and Re:coded can be launched through Melon Mix, a separate project that this launcher only starts.
 - KINGDOM HEARTS is a trademark of Disney Enterprises, Inc. and Square Enix Co., Ltd. This is an unofficial fan-made tool, not affiliated with or endorsed by either company, and it contains no game files. The artwork in `Assets\Steam\` belongs to its respective owners.
 
-## Demo
+## Original repository demo
 ### Official Launcher
 https://github.com/SandeMC/Kingdom-Hearts-Launchers/assets/70141395/444215c5-6e5a-4552-b71e-418acfa878dd
 ### This launcher
