@@ -1,0 +1,109 @@
+<Window x:Class="Kingdom_Hearts_Launcher.LauncherConfig"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Launcher Config"
+        Width="420"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterOwner"
+        SnapsToDevicePixels="True"
+        ResizeMode="NoResize">
+    <Window.Resources>
+        <!-- Stronger focus cue so a controller user can see the current selection. -->
+        <Style TargetType="CheckBox">
+            <Style.Triggers>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Foreground" Value="#0A58CA"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Foreground" Value="#0A58CA"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="0,0,5,0">
+                <TextBlock Text="Games folder (contains all of your KINGDOM HEARTS game folders):"/>
+                <DockPanel Margin="0,2,0,0">
+                    <Button DockPanel.Dock="Right" Content="Browse" Margin="5,0,0,0" Width="60" Click="BrowseGamesDir_Click"/>
+                    <TextBox x:Name="GamesDirBox" Height="20" TextChanged="Paths_TextChanged"/>
+                </DockPanel>
+                <TextBlock x:Name="DetectedText" Margin="0,4,0,0" FontSize="11" Foreground="Gray"/>
+
+                <Separator Height="1" Margin="10"/>
+
+                <TextBlock Text="Game order:" Margin="0,0,0,5"/>
+                <ComboBox x:Name="PresetsComboBox"/>
+
+                <CheckBox x:Name="SkipMoviesCheckBox" Content="Skip copyright screen on movies" Margin="0,10,0,0"/>
+                <CheckBox x:Name="SkipKH1CheckBox" Content="Skip copyright screen on KINGDOM HEARTS 1" Margin="0,5,0,0"/>
+                <CheckBox x:Name="ControllerCheckBox" Content="Controller navigation (A select, X config, B back)" Margin="0,5,0,0"/>
+
+                <Separator Height="1" Margin="10"/>
+
+                <TextBlock Text="358/2 Days native PC port (install folder or exe):"/>
+                <DockPanel Margin="0,2,0,0">
+                    <Button DockPanel.Dock="Right" Content="Browse" Margin="5,0,0,0" Width="60" Click="BrowseDaysNative_Click"/>
+                    <TextBox x:Name="DaysNativeBox" Height="20" TextChanged="Paths_TextChanged"/>
+                </DockPanel>
+                <TextBlock x:Name="DaysNativeStatus" Margin="0,4,0,0" FontSize="11" Foreground="Gray" TextWrapping="Wrap"/>
+                <CheckBox x:Name="UseNativeDaysCheckBox" Content="Use the native PC port for 358/2 Days" Margin="0,5,0,0" IsEnabled="False"/>
+
+                <Separator Height="1" Margin="10"/>
+
+                <TextBlock Text="KINGDOM HEARTS Melody of Memory executable:"/>
+                <DockPanel Margin="0,2,0,0">
+                    <Button DockPanel.Dock="Right" Content="Browse" Margin="5,0,0,0" Width="60" Click="BrowseMelodyOfMemory_Click"/>
+                    <TextBox x:Name="MelodyOfMemoryBox" Height="20"/>
+                </DockPanel>
+
+                <Separator Height="1" Margin="10"/>
+
+                <TextBlock Text="Melon Mix Path:"/>
+                <DockPanel Margin="0,2,0,0">
+                    <Button DockPanel.Dock="Right" Content="Browse" Margin="5,0,0,0" Width="60" Click="BrowseMelonMix_Click"/>
+                    <TextBox x:Name="MelonMixBox" Height="20" IsReadOnly="True"/>
+                </DockPanel>
+                <CheckBox x:Name="UseMelonMixOnDaysCheckBox" Content="Use Melon Mix for 358/2 Days" Margin="0,10,0,0" IsEnabled="False"/>
+                <CheckBox x:Name="UseMelonMixOnRecodedCheckBox" Content="Use Melon Mix for Re:coded" Margin="0,5,0,0" IsEnabled="False"/>
+
+                <Separator Height="1" Margin="10"/>
+
+                <TextBlock Text="Your GBA Emulator Path:"/>
+                <DockPanel Margin="0,2,0,0">
+                    <Button DockPanel.Dock="Right" Content="Browse" Margin="5,0,0,0" Width="60" Click="BrowseEmulator_Click"/>
+                    <TextBox x:Name="EmulatorBox" Height="20" IsReadOnly="True"/>
+                </DockPanel>
+                <TextBlock Text="Your Chain of Memories ROM Path:" Margin="0,2,0,0"/>
+                <DockPanel Margin="0,2,0,0">
+                    <Button DockPanel.Dock="Right" Content="Browse" Margin="5,0,0,0" Width="60" Click="BrowseRom_Click"/>
+                    <TextBox x:Name="RomBox" Height="20" IsReadOnly="True"/>
+                </DockPanel>
+                <CheckBox x:Name="ComInsteadOfRecomCheckBox" Content="Replace Re:CoM with GBA CoM" Margin="0,10,0,0" IsEnabled="False"/>
+
+                <Separator Height="1" Margin="10"/>
+
+                <TextBlock Text="Steam:"/>
+                <Button x:Name="AddToSteamButton" Content="Add this launcher to Steam" Margin="0,4,0,0" Height="22" Click="AddToSteam_Click"/>
+                <TextBlock x:Name="SteamStatus" Margin="0,4,0,0" FontSize="11" Foreground="Gray" TextWrapping="Wrap"/>
+                <Button x:Name="MoveLauncherButton" Content="Move this launcher to a Steam library folder..." Margin="0,6,0,0" Height="22" Click="MoveLauncher_Click"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button x:Name="SaveButton" Content="Save" Width="75" Click="SaveButton_Click" IsDefault="True"/>
+            <Button x:Name="CancelButton" Content="Cancel" Width="75" Margin="5,0,0,0" IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>

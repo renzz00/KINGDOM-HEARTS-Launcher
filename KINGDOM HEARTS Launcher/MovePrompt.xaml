@@ -1,0 +1,35 @@
+<Window x:Class="Kingdom_Hearts_Launcher.MovePrompt"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Move launcher to Steam folder"
+        Width="460"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        SnapsToDevicePixels="True"
+        ResizeMode="NoResize">
+    <StackPanel Margin="14">
+        <TextBlock TextWrapping="Wrap">
+            Move KINGDOM HEARTS Launcher next to your games?
+            <LineBreak/><LineBreak/>
+            It works best in the same steamapps\common folder as the games: it then finds them by itself, and
+            Steam keeps it with your library. The launcher is copied there, started again from the new place,
+            and the old copy is removed.
+        </TextBlock>
+
+        <TextBlock Text="Steam library folder (steamapps\common):" Margin="0,12,0,0"/>
+        <DockPanel Margin="0,2,0,0">
+            <Button DockPanel.Dock="Right" Content="Browse" Margin="5,0,0,0" Width="60" Click="Browse_Click"/>
+            <TextBox x:Name="FolderBox" Height="20" TextChanged="FolderBox_TextChanged"/>
+        </DockPanel>
+        <TextBlock x:Name="PreviewText" Margin="0,4,0,0" FontSize="11" Foreground="Gray" TextWrapping="Wrap"/>
+        <TextBlock x:Name="ErrorText" Margin="0,6,0,0" Foreground="Firebrick" TextWrapping="Wrap" Visibility="Collapsed"/>
+
+        <TextBlock x:Name="HintText" Margin="0,10,0,0" FontSize="11" Foreground="Gray"
+                   Text="Controller: A to move, B for not now (changing the folder needs a mouse)"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+            <Button x:Name="MoveButton" Content="Move" Width="90" Height="24" IsDefault="True" Click="Move_Click"/>
+            <Button Content="Not now" Width="90" Height="24" Margin="6,0,0,0" IsCancel="True" Click="NotNow_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
