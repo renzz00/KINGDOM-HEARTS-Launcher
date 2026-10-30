@@ -66,8 +66,9 @@ It rebuilds the launcher in Release mode and creates `dist\KINGDOM-HEARTS-Launch
 - **Left stick / D-pad up and down** move the selection.
 - **A** (Cross on PlayStation pads) launches the selected game.
 - **X** (Square) opens the config.
+- **Y** (Triangle) opens the OpenKH Mod Manager.
 - In the config: stick / D-pad moves between options, **A** toggles or presses, **B** (Circle) closes a dropdown or cancels the dialog. Picking paths (the Browse buttons and path boxes) still needs a mouse and keyboard.
-- DirectInput pads are read through the Windows joystick API, using buttons 1-3 (X/A/B on Xbox-layout pads, Square/Cross/Circle on PlayStation pads). Input is ignored while a message box is open. It can be turned off in the config.
+- DirectInput pads are read through the Windows joystick API, using buttons 1-4 (X/A/B/Y on Xbox-layout pads, Square/Cross/Circle/Triangle on PlayStation pads). Input is ignored while a message box is open. It can be turned off in the config.
 
 ## Melody of Memory
 Set the game's exe in **Launcher Config** (Browse, or paste the path). There's no automatic detection, so any copy of the game works wherever it is. The launcher doesn't write a `steam_appid.txt` for it.

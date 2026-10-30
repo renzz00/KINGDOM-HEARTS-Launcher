@@ -38,9 +38,10 @@
         <StackPanel Grid.Row="1">
             <Button Content="Launch" Margin="0,5,0,0" Height="25" FontWeight="Bold" Click="Launch_Click" IsDefault="True"/>
             <Button Content="Launcher Config" Margin="0,5,0,0" Height="25" Click="LauncherConfigButton_Click"/>
+            <Button Content="OpenKH Mod Manager" Margin="0,5,0,0" Height="25" Click="ModManagerButton_Click"/>
             <TextBlock x:Name="ControllerHint" Margin="0,6,0,0" FontSize="11" Foreground="Gray"
-                       HorizontalAlignment="Center"
-                       Text="Controller: left stick / D-pad to select, A to launch, X for config"/>
+                       HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"
+                       Text="Controller: left stick / D-pad to select, A to launch, X for config, Y for OpenKH"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -213,6 +213,11 @@ namespace Kingdom_Hearts_Launcher
                 OpenConfig();
                 return;
             }
+            if (action == PadAction.ModManager)
+            {
+                OpenModManager();
+                return;
+            }
 
             int step = action == PadAction.Down ? 1 : -1;
             GameList.SelectedIndex = (GameList.SelectedIndex + step + count) % count;
@@ -231,6 +236,63 @@ namespace Kingdom_Hearts_Launcher
         private void LauncherConfigButton_Click(object sender, RoutedEventArgs e)
         {
             OpenConfig();
+        }
+
+        private const string OpenKhReleasesUrl = "https://github.com/OpenKH/OpenKh/releases/latest";
+
+        private static string ModManagerPath
+        {
+            get
+            {
+                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                    "OpenKH", "openkh", "OpenKh.Tools.ModsManager.exe");
+            }
+        }
+
+        private void ModManagerButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenModManager();
+        }
+
+        private void OpenModManager()
+        {
+            string exe = ModManagerPath;
+            if (!File.Exists(exe))
+            {
+                MessageBoxResult answer = MessageBox.Show(this,
+                    "OpenKH Mod Manager was not found at:\n" + exe + "\n\nOpen the OpenKH releases page to download and install it?",
+                    "OpenKH Mod Manager", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (answer == MessageBoxResult.Yes)
+                {
+                    OpenWebPage(OpenKhReleasesUrl);
+                }
+                return;
+            }
+
+            try
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(exe)
+                {
+                    WorkingDirectory = Path.GetDirectoryName(exe),
+                    UseShellExecute = true,
+                });
+            }
+            catch (Exception ex) when (ex is System.ComponentModel.Win32Exception || ex is IOException || ex is UnauthorizedAccessException)
+            {
+                MessageBox.Show(this, "Could not start OpenKH Mod Manager: " + ex.Message, "OpenKH Mod Manager");
+            }
+        }
+
+        private void OpenWebPage(string url)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(url) { UseShellExecute = true });
+            }
+            catch (System.ComponentModel.Win32Exception ex)
+            {
+                MessageBox.Show(this, "Could not open " + url + ": " + ex.Message);
+            }
         }
 
         private void OpenConfig()

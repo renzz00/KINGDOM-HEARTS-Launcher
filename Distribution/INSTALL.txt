@@ -49,7 +49,7 @@ SETTINGS
   go to %LOCALAPPDATA%\KINGDOM HEARTS Launcher\launcher_config.json instead.
 
 CONTROLLER
-- Left stick / D-pad: move. A (Cross): launch. X (Square): open the config.
+- Left stick / D-pad: move. A (Cross): launch. X (Square): open the config. Y (Triangle): open the OpenKH Mod Manager.
 - In the config: A toggles or presses, B (Circle) goes back.
 - Picking paths needs a mouse and keyboard. Works with XInput and DirectInput pads.
 

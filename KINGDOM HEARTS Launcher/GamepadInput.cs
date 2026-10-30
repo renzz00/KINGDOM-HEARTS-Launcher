@@ -11,11 +11,13 @@ namespace Kingdom_Hearts_Launcher
         Down,
         Confirm,
         Config,
-        Cancel
+        Cancel,
+        ModManager
     }
 
     // Polls XInput pads and DirectInput-style pads (through the winmm joystick API, which sees them too).
-    // Left stick / D-pad moves the selection, A (Cross) confirms, X (Square) opens the config, B (Circle) cancels.
+    // Left stick / D-pad moves the selection, A (Cross) confirms, X (Square) opens the config, B (Circle) cancels,
+    // Y (Triangle) opens the OpenKH Mod Manager.
     public sealed class GamepadInput : IDisposable
     {
         private const ushort XInputDpadUp = 0x0001;
@@ -26,10 +28,10 @@ namespace Kingdom_Hearts_Launcher
         private const int WinmmThreshold = 16000;
 
         // Face buttons in the order of ButtonActions. In DirectInput mode, buttons 1-3 are X/A/B on Xbox-layout
-        // pads and Square/Cross/Circle on PlayStation pads, so the same masks serve both.
-        private static readonly PadAction[] ButtonActions = { PadAction.Confirm, PadAction.Config, PadAction.Cancel };
-        private static readonly ushort[] XInputMasks = { 0x1000 /* A */, 0x4000 /* X */, 0x2000 /* B */ };
-        private static readonly uint[] WinmmMasks = { 0x2, 0x1, 0x4 };
+        // pads and Square/Cross/Circle on PlayStation pads (button 4 is Y / Triangle), so the same masks serve both.
+        private static readonly PadAction[] ButtonActions = { PadAction.Confirm, PadAction.Config, PadAction.Cancel, PadAction.ModManager };
+        private static readonly ushort[] XInputMasks = { 0x1000 /* A */, 0x4000 /* X */, 0x2000 /* B */, 0x8000 /* Y */ };
+        private static readonly uint[] WinmmMasks = { 0x2, 0x1, 0x4, 0x8 };
 
         private static readonly TimeSpan RescanInterval = TimeSpan.FromSeconds(2);
         private static readonly TimeSpan RepeatDelay = TimeSpan.FromMilliseconds(400);
