@@ -60,7 +60,7 @@ Run this from the repository root:
 powershell -ExecutionPolicy Bypass -File .\Package-Release.ps1
 ```
 
-It rebuilds the launcher in Release mode and creates `dist\KINGDOM-HEARTS-Launcher-v<version>.zip` containing the exe, `INSTALL.txt` (the instructions above, from `Distribution\INSTALL.txt`) and the license. The version comes from `Properties\AssemblyInfo.cs`, so bump `AssemblyVersion` and `AssemblyFileVersion` there before packaging. Keep `Distribution\INSTALL.txt` in sync when these instructions change. Share the zip (for example as a GitHub release asset).
+It rebuilds the launcher in Release mode and creates `dist\KINGDOM-HEARTS-Launcher-v<version>.zip` containing the exe, `INSTALL.txt` (the instructions above, from `KINGDOM HEARTS Launcher\INSTALL.txt`) and the license. The version comes from `Properties\AssemblyInfo.cs`, so bump `AssemblyVersion` and `AssemblyFileVersion` there before packaging. Keep `KINGDOM HEARTS Launcher\INSTALL.txt` in sync when these instructions change. Share the zip (for example as a GitHub release asset).
 
 ## Controller
 - **Left stick / D-pad up and down** move the selection.

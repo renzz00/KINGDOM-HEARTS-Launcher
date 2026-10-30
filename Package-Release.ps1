@@ -84,7 +84,7 @@ if (Test-Path $dist) { Remove-Item $dist -Recurse -Force }
 New-Item -ItemType Directory -Path $staging | Out-Null
 
 Copy-Item $exe $staging
-Copy-Item (Join-Path $root 'Distribution\INSTALL.txt') $staging
+Copy-Item (Join-Path $root 'KINGDOM HEARTS Launcher\INSTALL.txt') $staging
 Copy-Item (Join-Path $root 'LICENSE.txt') $staging
 
 Compress-Archive -Path $staging -DestinationPath $zip
